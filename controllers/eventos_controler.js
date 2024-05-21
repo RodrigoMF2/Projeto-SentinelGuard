@@ -1,5 +1,6 @@
 const Eventos = require('../models/eventos');
 const Camara = require('../models/camara');
+const Usuario = require('../models/user')
 
 exports.createevento = (req, res, next) => {
     Eventos.create(req.body)
@@ -11,13 +12,21 @@ exports.createevento = (req, res, next) => {
     })
 }
 
-exports.getAllEventos = (req,res,next) => {
-    Eventos.findAll({include: Camara})
-    .then(evento =>{
-        res.status(201).json(evento)})
-    .catch(error =>
-        res.status(400).json({ error: error.message }))
-}
+exports.getAllEventos = (req, res, next) => {
+    Eventos.findAll({
+        include: [
+            { model: Camara, attributes: ['localizacao'] },
+            { model: Usuario, attributes: ['first_name'] }
+        ]
+    })
+        .then(evento => {
+            res.status(200).json(evento);
+        })
+        .catch(error => {
+            res.status(400).json({ error: error.message });
+        });
+};
+
 
 exports.getEventoById = (req,res,next) => {
     const id = req.params;

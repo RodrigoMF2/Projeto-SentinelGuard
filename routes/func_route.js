@@ -1,7 +1,5 @@
 const express = require('express');
 const funcController = require('../controllers/func_controller');
-const multer = require('multer');
-const upload = require('../util/upload');
 const router = express.Router();
 
 router.post('/func',funcController.createfunc);

@@ -2,8 +2,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require('path');
-const  multer   =  require ( 'multer' ) ;
-const  upload  =  multer ();
 
 const port = 3001;
 const host = 'localhost';
@@ -16,7 +14,6 @@ const MinhaConexãoBD = require('./util/database');
 const user = require('./models/user');
 const camara = require('./models/camara');
 const eventos = require('./models/eventos');
-const notificacao = require('./models/nofificação');
 const videos = require('./models/videos');
 const image_recognition = require('./models/image_recognition');
 const funcionario = require('./models/funcionarios')
@@ -27,7 +24,6 @@ const camaraRoutes = require ('./routes/camara_route');
 const eventoRoutes = require ('./routes/evento_route');
 const funcRoutes = require('./routes/func_route');
 const videoRoutes = require('./routes/video_route');
-const notificacaoRoutes = require ('./routes/notifi_route');
 const imgrecognitionRoute = require('./routes/img_reco_route');
 
 
@@ -39,8 +35,8 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 //relação entre as tabelas
-user.hasMany(notificacao, { foreignKey: 'usuario_id' });
-notificacao.belongsTo(user, { foreignKey: 'usuario_id' });
+user.hasMany(eventos, { foreignKey: 'usuario_id' });
+eventos.belongsTo(user, { foreignKey: 'usuario_id' });
 
 camara.hasMany(videos, { foreignKey: 'camara_id' });
 videos.belongsTo(camara, { foreignKey: 'camara_id' });
@@ -54,9 +50,6 @@ image_recognition.belongsTo(camara, { foreignKey: 'camara_id' });
 funcionario.hasMany(image_recognition, { foreignKey: 'id_funcionario' });
 image_recognition.belongsTo(funcionario, { foreignKey: 'id_funcionario' });
 
-eventos.hasMany(notificacao, { foreignKey: 'evento_id' });
-notificacao.belongsTo(eventos, { foreignKey: 'evento_id' });
-
 
 // Rota de teste
 app.use('/teste', userRoutes);
@@ -64,7 +57,6 @@ app.use('/teste', camaraRoutes);
 app.use ('/teste', eventoRoutes);
 app.use('/teste', funcRoutes);
 app.use('/teste', videoRoutes);
-app.use('/teste',notificacaoRoutes);
 app.use('/teste', imgrecognitionRoute);
 
 

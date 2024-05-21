@@ -11,6 +11,10 @@ const eventos = meusequelize.define("EVENTOS", {
         allowNull: false,
         primaryKey: true
     },
+    usuario_id: {// chave estrangeira da tabeka usuario
+        type: Sequelize.INTEGER,
+        allowNull: false,
+    },
     camara_id: { //chave estrangeira da tabela camara
         type: Sequelize.INTEGER,
         allowNull: false,
