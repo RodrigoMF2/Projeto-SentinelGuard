@@ -20,6 +20,11 @@ const image_recognition = meusequelize.define('IMAGE_RECOGNITION', {
         type: Sequelize.INTEGER,
         allowNull: false
     },
+    desconhecido: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
+        defaultValue: false
+    },
     acesso_autorizado:
     {
         type: Sequelize.STRING,

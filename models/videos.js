@@ -3,7 +3,7 @@ const meusequelize = require('../util/database');
 
 const Camara = require('./camara');
 
-const videos_table = meusequelize.define('Videos', {
+const videos = meusequelize.define('Videos', {
     videos_id:
     {
         type: Sequelize.INTEGER,
@@ -34,4 +34,4 @@ const videos_table = meusequelize.define('Videos', {
     timestamps: false // Desativando a criação automática de createdAt e updatedAt
 });
 
-module.exports = videos_table;
+module.exports = videos;
