@@ -6,3 +6,9 @@ Spring 1:
    Posteman para testar as rotas dos devidos modelos;
    Postgree para armazenamento do nosso Base de Dados;
    Vs Studio Code para implemtação de algoritmos para o funcionamento de projeto.
+
+
+   Nome: Rodrigo Hendrick Monteiro Santos Fortes
+   Curso: Engenharia Informatica e de Telecomunicações
+   Ano: 3ºAno
+   Universidade: Universidade técnica do Atlantico (UTA)
