@@ -3,17 +3,20 @@ const videoControllr = require('../controllers/videos_controller');
 const router = express.Router();
 
 
-router.post('/videos_create', videoControllr.createVideo);
+// admin/users/create => POST
+router.post('/users/create', userController.createUser);
 
-router.get('/videos', videoControllr.getAllVideos);
+//admin/users => GET
+router.get('/users', userController.getAllUsers);
 
-// Rota para obter vídeo com localização da câmera
-router.get('/videos/:id/location', videoControllr.getVideoWithCameraLocation);
+//admin/users/:id => GET
+router.get('/users/:id', userController.getUserByID);
 
-// Rota para obter vídeos por câmera
-router.get('/cameras/:camara_id/videos', videoControllr.getVideosByCamera);
+//admin/users/update/:id => PUT
+router.put('/users/update/:id', userController.updateUser);
 
+//admin/users/delete/:id => DELETE
+router.delete('/users/delete/:id', userController.deleteUser);
 
-router.delete('/videos/:id', videoControllr.deleteVideo);
 
 module.exports = router;
