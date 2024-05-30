@@ -22,7 +22,7 @@ const funcionarios = meusequelize.define('FUNCIONARIOS', {
     },
     image_face_funcionario:{
         type:Sequelize.BLOB('long'),
-        allowNull: false
+        allowNull: true
     }
 },{freezeTableName: true,
     timestamps: false // Desativando a criação automática de createdAt e updatedAt

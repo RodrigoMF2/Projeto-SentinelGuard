@@ -4,14 +4,19 @@
   "description": "BackEnd do Sentinel Guard",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "cross-env NODE_ENV=test jest --testTimeout=10000",
+    "pretest": "cross-env NODE_ENV=test npm run db:reset",
+    "db:create:test":"cross-env NODE_ENV=test npx sequelize-cli db:create",
     "start": "nodemon src/app.js",
-    "start-server": "node src/app.js"
+    "start-server": "node src/app.js",
+    "db:reset": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all"
   },
   "author": "Rodrigo",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^3.1.0"
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.0",
+    "supertest": "^7.0.0"
   },
   "dependencies": {
     "body-parser": "^1.20.2",
