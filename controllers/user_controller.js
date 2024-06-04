@@ -40,13 +40,14 @@ exports.updateUser = (req, res) =>{
         where:{id_user: req.params.id}
     }).then(([update]) =>{
         if(update){
-            return User.findByPk(req.params.id);
+            return USER.findByPk(req.params.id); // Corrigi a referência do modelo USER
         }else{
             res.status(404).json({message: 'User not found'})
         }
     }).then(user => {
         res.status(200).json(user);
     }).catch(error => {
+        console.error('Error updating user:', error); // Adiciona log para o erro
         res.status(500).json({ error: error.message });
     });
 };

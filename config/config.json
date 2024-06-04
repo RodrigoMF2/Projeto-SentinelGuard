@@ -1,0 +1,26 @@
+{
+    "development": {
+    "username": "postgres",
+    "password": "c9m1nid1d3",
+    "database": "wishlist_dev",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+    },
+    "test": {
+    "username": "postgres",
+    "password": "c9m1nid1d3",
+    "database": "wishlist_test",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+    },
+    "production": {
+    "username": "dbrodrigo_user",
+    "password": "IspRCEMlllnicmJVyScKUrc1DCaWMnJU",
+    "host": "dpg-cpatk4cf7o1s73amqs20-a.oregon-postgres.render.com",
+    "database": "dbrodrigo",
+    "dialectOptions": {
+        "ssl": true
+    },
+    "dialect": "postgres"
+    }
+}

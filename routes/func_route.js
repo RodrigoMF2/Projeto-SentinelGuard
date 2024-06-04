@@ -16,7 +16,7 @@ router.get('/func/:id', funcController.getfuncByid);
 router.get('/func/image', funcController.getfuncBy_IMG_FACE);
 
 
-router.put('/update_func',funcController.updateFunc);
+router.put('/update_func/:id',funcController.updateFunc);
 
 
 router.delete('/delete_funcionario/:id',funcController.deleteFunc);

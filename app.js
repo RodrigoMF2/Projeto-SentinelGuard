@@ -73,16 +73,17 @@ MinhaConexãoBD
     return MinhaConexãoBD.sync();
 })
 .then(() => {
-    console.log('Modelos sincronizados com sucesso com o banco de dados.');
     // Iniciando o servidor
     app.listen(port, host, () => {
-    console.log(`Servidor executando em http://${host}:${port}`);
+    //console.log(`Servidor executando em http://${host}:${port}`);
     });
 })
 .catch(error => {
     console.error('Erro ao conectar ou sincronizar com o banco de dados:', error);
     process.exit(1); // Termina o programa com código de saída 1
 });
+
+module.exports = app;
 
 
 
